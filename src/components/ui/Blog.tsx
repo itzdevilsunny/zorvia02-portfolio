@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import ArrowButton from './ArrowButton';
-import { Blog as BlogType } from '../../data/data'; 
+import { Blog as BlogType } from '@/data/data'; 
 import ClientOnly from './ClientOnly';
 
 interface BlogProps extends BlogType {
