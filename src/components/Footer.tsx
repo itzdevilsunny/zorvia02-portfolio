@@ -56,7 +56,7 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 2.0, ease: "easeInOut" }}
             className="w-full min-h-[400px] lg:h-[685px] px-4 sm:px-6 lg:px-[71px] py-[30px] sm:py-[35px] lg:py-[40px] flex flex-col bg-[#272727] rounded-t-2xl sm:rounded-t-3xl text-white justify-between"
         >
 

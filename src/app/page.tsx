@@ -77,7 +77,7 @@ export default function Home() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 2.0, ease: "easeInOut" }}
             className="flex-1 space-y-8"
           >
             <div className="space-y-4">
@@ -109,7 +109,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 2.0, ease: "easeInOut" }}
             className="flex-1 relative w-full aspect-[4/3] max-w-[600px] group"
           >
              <div className="absolute inset-0 bg-[#FD853A]/20 rounded-[40px] blur-2xl opacity-50 animate-pulse" />
@@ -143,7 +143,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.2 }}
+                transition={{ duration: 2.0, delay: i * 0.3, ease: "easeInOut" }}
                 className={`flex flex-col lg:flex-row gap-12 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
               >
                 <div className="w-full lg:w-1/2 aspect-square relative bg-[#F2F4F7] rounded-[40px] overflow-hidden group">
@@ -213,7 +213,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 2.0, delay: i * 0.2, ease: "easeInOut" }}
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-[32px] border border-[#EAECF0] hover:shadow-xl transition-all duration-300 group"
               >
@@ -257,7 +257,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, type: "spring", damping: 20 }}
+            transition={{ duration: 2.0, ease: "easeInOut" }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {services.map((service, i) => {
@@ -296,7 +296,7 @@ export default function Home() {
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, type: "spring", damping: 20 }}
+            transition={{ duration: 2.0, ease: "easeInOut" }}
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
             {featuredProjects.map((project, i) => (
@@ -371,7 +371,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 2.0, delay: i * 0.2, ease: "easeInOut" }}
                 className="space-y-6 flex flex-col items-center"
               >
                 <div className="w-16 h-16 rounded-full bg-[#F2F4F7] flex items-center justify-center text-[#FD853A]">
@@ -400,7 +400,7 @@ export default function Home() {
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 2.0, delay: i * 0.2, ease: "easeInOut" }}
               className="space-y-2"
             >
               <h3 className="text-5xl md:text-7xl font-bold">{item.metric}</h3>
@@ -425,7 +425,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 2.0, delay: i * 0.2, ease: "easeInOut" }}
                 className="relative pl-10"
               >
                 <div className="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-[#FD853A] border-4 border-white shadow-sm" />
@@ -448,7 +448,7 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 2.0, ease: "easeInOut" }}
           className="max-w-[1200px] mx-auto bg-[#171717] rounded-[60px] p-12 lg:p-24 flex flex-col lg:flex-row gap-16 items-center text-white"
         >
           <div className="flex-1 space-y-8 text-center lg:text-left">
@@ -599,3 +599,4 @@ export default function Home() {
     </div>
   );
 }
+
