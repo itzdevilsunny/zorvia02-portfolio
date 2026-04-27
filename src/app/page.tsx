@@ -210,9 +210,9 @@ export default function Home() {
                </div>
                <p className="max-w-[500px] text-[#667085] text-lg">Comprehensive technology solutions for startups and enterprises.</p>
             </div>
-            <OrangeButton 
+             <OrangeButton 
               title="Get Started" 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScDk4gpHnkUFH42gSSVvHgpmUOKzTbgCtcSEIl-C9zfKrSLNA/viewform', '_blank')}
             />
           </div>
 
