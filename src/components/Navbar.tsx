@@ -54,12 +54,12 @@ const Navbar = () => {
             {/* Logo */}
             <div 
                 className="flex flex-col items-center flex-shrink-0 cursor-pointer hover:scale-105 transition-transform"
-                onClick={() => scrollToSection('home', 'Home')}
+                onClick={() => window.open('https://www.zorvia.digital/', '_blank')}
             >
                 <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 bg-[#FD853A] rounded-full flex items-center justify-center mb-1">
                     <span className="font-bold text-white text-xs">ZD</span>
                 </div>
-                <span className="font-bold text-sm sm:text-base lg:text-lg tracking-wide">ZORVIA</span>
+                <span className="font-bold text-sm sm:text-base lg:text-lg tracking-wide">ZORVIA DIGITAL</span>
             </div>
 
             {/* Right Menu (Desktop) */}
