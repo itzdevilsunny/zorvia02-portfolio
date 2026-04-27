@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import { FacebookIcon, YoutubeIcon, InstagramIcon, TwitterIcon, MessageCircle } from "lucide-react";
 import { ArrowUpRight } from "lucide-react";
 import CustomeText from "./ui/CustomeText";
@@ -28,6 +28,27 @@ const Footer = () => {
         "contact@zorvia.digital",
         "South Extension, New Delhi, Delhi, 110049"
     ]
+
+    const [email, setEmail] = useState("");
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+    const handleSubscribe = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!email || !email.includes('@')) {
+            setStatus("error");
+            setTimeout(() => setStatus("idle"), 3000);
+            return;
+        }
+
+        setStatus("loading");
+        
+        // Simulate API call
+        setTimeout(() => {
+            setStatus("success");
+            setEmail("");
+            setTimeout(() => setStatus("idle"), 3000);
+        }, 1000);
+    };
 
     return (
         <footer className="w-full min-h-[400px] lg:h-[685px] px-4 sm:px-6 lg:px-[71px] py-[30px] sm:py-[35px] lg:py-[40px] flex flex-col bg-[#272727] rounded-t-2xl sm:rounded-t-3xl text-white justify-between">
@@ -129,23 +150,36 @@ const Footer = () => {
                         title="Get the latest information"
                         className="text-[18px] sm:text-[19px] lg:text-[20px] font-semibold text-[#FD853A]"
                     />
-                    <div className="relative w-full h-[45px] sm:h-[48px] lg:h-[51px]">
+                    <form onSubmit={handleSubscribe} className="relative w-full h-[45px] sm:h-[48px] lg:h-[51px]">
                         <ClientOnly>
                             <input
-                                type="text"
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Email Address"
-                                className="w-full h-full bg-white text-black text-[14px] sm:text-[15px] lg:text-[16px] px-3 sm:px-4 py-2 sm:py-3 pr-12 rounded-[8px] sm:rounded-[10px] border-none outline-none"
+                                disabled={status === "loading" || status === "success"}
+                                className={`w-full h-full bg-white text-black text-[14px] sm:text-[15px] lg:text-[16px] px-3 sm:px-4 py-2 sm:py-3 pr-12 rounded-[8px] sm:rounded-[10px] border-2 outline-none transition-all ${status === "error" ? "border-red-500" : status === "success" ? "border-green-500" : "border-transparent"}`}
                             />
                             <button 
+                                type="submit"
                                 title="Send newsletter"
                                 aria-label="Send newsletter"
-                                className="absolute top-0 right-0 h-full w-[45px] sm:w-[48px] lg:w-[51px] bg-[#FD853A] rounded-r-[8px] sm:rounded-r-[10px] flex items-center justify-center cursor-pointer hover:bg-[#e46e24] transition-colors">
-                                <svg width="20" height="21" className="sm:w-6 sm:h-6 lg:w-6 lg:h-6" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.29602 3.48708C3.91012 2.38589 1.36183 4.66673 2.19279 7.15964L3.45424 10.9007C3.59136 11.3074 3.97267 11.5812 4.40182 11.5812H13C13.5523 11.5812 14 12.0289 14 12.5812C14 13.1335 13.5523 13.5812 13 13.5812H4.40182C3.97267 13.5812 3.59136 13.855 3.45424 14.2617L2.19281 18.0028C1.36183 20.4957 3.91012 22.7765 6.29603 21.6754L20.0983 15.3051C22.422 14.2326 22.422 10.9299 20.0983 9.85737L6.29602 3.48708Z" fill="#FCFCFD" />
-                                </svg>
+                                disabled={status === "loading" || status === "success"}
+                                className="absolute top-0 right-0 h-full w-[45px] sm:w-[48px] lg:w-[51px] bg-[#FD853A] rounded-r-[8px] sm:rounded-r-[10px] flex items-center justify-center cursor-pointer hover:bg-[#e46e24] transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                                {status === "loading" ? (
+                                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                ) : status === "success" ? (
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                ) : (
+                                    <svg width="20" height="21" className="sm:w-6 sm:h-6 lg:w-6 lg:h-6" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.29602 3.48708C3.91012 2.38589 1.36183 4.66673 2.19279 7.15964L3.45424 10.9007C3.59136 11.3074 3.97267 11.5812 4.40182 11.5812H13C13.5523 11.5812 14 12.0289 14 12.5812C14 13.1335 13.5523 13.5812 13 13.5812H4.40182C3.97267 13.5812 3.59136 13.855 3.45424 14.2617L2.19281 18.0028C1.36183 20.4957 3.91012 22.7765 6.29603 21.6754L20.0983 15.3051C22.422 14.2326 22.422 10.9299 20.0983 9.85737L6.29602 3.48708Z" fill="#FCFCFD" />
+                                    </svg>
+                                )}
                             </button>
                         </ClientOnly>
-                    </div>
+                    </form>
+                    {status === "success" && <p className="text-green-500 text-sm animate-pulse">Successfully subscribed!</p>}
+                    {status === "error" && <p className="text-red-500 text-sm">Please enter a valid email.</p>}
                 </div>
             </div>
 

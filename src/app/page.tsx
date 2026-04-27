@@ -7,30 +7,40 @@ import { Globe, Zap, Mail, Phone, ChevronRight, Layout, Cpu, Database, Calendar,
 import OrangeButton from "@/components/ui/OrangeButton";
 import { teamMembers, services, featuredProjects, techStack, whyChooseUs, timeline, type Service } from '../data/data';
 import ClientOnly from "@/components/ui/ClientOnly";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const founders = teamMembers.filter(m => m.type === 'founder');
   const coreTeam = teamMembers.filter(m => m.type === 'core');
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
+  const copyToClipboard = (text: string, type: string) => {
+    navigator.clipboard.writeText(text);
+    alert(`${type} copied to clipboard!`);
+  };
+
   return (
     <div className="relative min-h-screen w-full bg-white flex flex-col items-center justify-start overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section */}
-      <section id="home" className="relative w-full min-h-[80vh] flex flex-col items-center justify-center px-6 py-20 bg-gradient-to-b from-[#F9FAFB] to-white">
+      <section id="home" className="relative w-full min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-gradient-to-b from-[#F9FAFB] to-white">
         <div className="max-w-[1200px] w-full flex flex-col items-center text-center gap-8 animate-in fade-in slide-in-from-bottom-10 duration-1000">
           <ClientOnly>
-            <div className="px-6 py-2 rounded-full border border-[#FD853A]/30 bg-[#FD853A]/5 text-[#FD853A] font-medium text-sm animate-pulse">
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="px-6 py-2 rounded-full border border-[#FD853A]/30 bg-[#FD853A]/5 text-[#FD853A] font-medium text-sm"
+            >
               Building the Future of Tech
-            </div>
+            </motion.div>
           </ClientOnly>
           
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col items-center gap-4">
             <h1 className="text-5xl md:text-7xl lg:text-[88px] font-bold text-[#171717] leading-[1.1]">
               We Build <span className="text-[#FD853A]">Digital Products</span>, <br className="hidden md:block" /> AI Systems & Growth Solutions
             </h1>
-            <p className="max-w-[800px] text-lg md:text-xl text-[#667085] leading-relaxed">
+            <p className="max-w-[800px] text-lg md:text-xl text-[#667085] leading-relaxed text-center">
               Startup studio founded by ambitious student builders from University of Delhi creating solutions across SaaS, AI, automation and smart governance.
             </p>
           </div>
@@ -179,7 +189,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {coreTeam.map((member, i) => (
-              <div key={i} className="bg-white p-8 rounded-[32px] border border-[#EAECF0] hover:shadow-xl transition-all duration-300 group">
+              <motion.div 
+                key={i} 
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-[32px] border border-[#EAECF0] hover:shadow-xl transition-all duration-300 group"
+              >
                 <div className="w-full aspect-square bg-[#F2F4F7] rounded-2xl mb-6 relative overflow-hidden group-hover:shadow-inner transition-all">
                    <Image 
                      src={member.image} 
@@ -193,7 +207,7 @@ export default function Home() {
                   <h4 className="text-xl font-bold text-[#1D2939] group-hover:text-[#FD853A] transition-colors">{member.name}</h4>
                   <p className="text-[#FD853A] font-medium text-sm uppercase">{member.role}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -216,7 +230,13 @@ export default function Home() {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
             {services.map((service, i) => {
               const Icon = service.icon;
               return (
@@ -237,7 +257,7 @@ export default function Home() {
                 </div>
               )
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -379,36 +399,38 @@ export default function Home() {
             <h2 className="text-4xl md:text-6xl font-bold leading-tight">
               Let&apos;s Build Something <span className="text-[#FD853A]">Together</span>
             </h2>
-            <div className="space-y-6">
-              <a 
-                href="mailto:contact@zorvia.digital"
-                className="flex items-center gap-4 justify-center lg:justify-start group cursor-pointer w-fit mx-auto lg:mx-0"
-              >
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#FD853A] group-hover:bg-[#FD853A] group-hover:text-white transition-all">
-                  <Mail size={24} />
-                </div>
-                <span className="text-xl group-hover:text-[#FD853A] transition-colors">contact@zorvia.digital</span>
-              </a>
-              <a 
-                href="tel:+918674828218"
-                className="flex items-center gap-4 justify-center lg:justify-start group cursor-pointer w-fit mx-auto lg:mx-0"
-              >
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#FD853A] group-hover:bg-[#FD853A] group-hover:text-white transition-all">
-                  <Phone size={24} />
-                </div>
-                <span className="text-xl group-hover:text-[#FD853A] transition-colors">+91 8674828218</span>
-              </a>
-              <a 
-                href="https://www.google.com/maps/dir/?api=1&destination=South+Extension,+New+Delhi,+Delhi+110049"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 justify-center lg:justify-start group cursor-pointer w-fit mx-auto lg:mx-0"
-              >
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#FD853A] group-hover:bg-[#FD853A] group-hover:text-white transition-all">
-                  <Globe size={24} />
-                </div>
-                <span className="text-xl group-hover:text-[#FD853A] transition-colors">South Extension, New Delhi, Delhi, 110049</span>
-              </a>
+                <div className="space-y-6">
+                  <div 
+                    onClick={() => copyToClipboard('contact@zorvia.digital', 'Email')}
+                    className="flex items-center gap-4 justify-center lg:justify-start group cursor-pointer w-fit mx-auto lg:mx-0"
+                    title="Click to copy email"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#FD853A] group-hover:bg-[#FD853A] group-hover:text-white transition-all">
+                      <Mail size={24} />
+                    </div>
+                    <span className="text-xl group-hover:text-[#FD853A] transition-colors">contact@zorvia.digital</span>
+                  </div>
+                  <div 
+                    onClick={() => copyToClipboard('+91 8674828218', 'Phone number')}
+                    className="flex items-center gap-4 justify-center lg:justify-start group cursor-pointer w-fit mx-auto lg:mx-0"
+                    title="Click to copy phone number"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#FD853A] group-hover:bg-[#FD853A] group-hover:text-white transition-all">
+                      <Phone size={24} />
+                    </div>
+                    <span className="text-xl group-hover:text-[#FD853A] transition-colors">+91 8674828218</span>
+                  </div>
+                  <a 
+                    href="https://www.google.com/maps/dir/?api=1&destination=South+Extension,+New+Delhi,+Delhi+110049"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 justify-center lg:justify-start group cursor-pointer w-fit mx-auto lg:mx-0"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#FD853A] group-hover:bg-[#FD853A] group-hover:text-white transition-all">
+                      <Globe size={24} />
+                    </div>
+                    <span className="text-xl group-hover:text-[#FD853A] transition-colors">South Extension, New Delhi, Delhi, 110049</span>
+                  </a>
               
               <div className="flex gap-4 pt-4">
                 {[
