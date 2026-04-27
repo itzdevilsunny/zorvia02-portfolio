@@ -14,6 +14,8 @@ export interface TeamMember {
 export interface Service {
   title: string;
   desc: string;
+  fullDesc: string;
+  features: string[];
   icon: LucideIcon;
 }
 
@@ -129,21 +131,29 @@ export const services: Service[] = [
   {
     title: "Web Products",
     desc: "Custom websites, dashboards, and enterprise portals built for performance.",
+    fullDesc: "We specialize in building high-performance, SEO-optimized web products that drive results. From complex enterprise portals to sleek corporate websites, our solutions are built with the latest technologies to ensure speed, security, and scalability.",
+    features: ["Custom Dashboard Development", "Responsive Web Design", "E-commerce Solutions", "API Integrations", "Performance Optimization"],
     icon: Globe
   },
   {
     title: "SaaS Solutions",
     desc: "Scalable software products tailored to your business needs.",
+    fullDesc: "Our SaaS development process focuses on creating multi-tenant architectures that are both robust and flexible. We handle everything from database design to deployment pipelines, ensuring your product can scale from 10 to 10,000+ users seamlessly.",
+    features: ["Multi-tenant Architecture", "Subscription Management", "Cloud Infrastructure (AWS/Vercel)", "Data Security & Privacy", "User Analytics Integration"],
     icon: Rocket
   },
   {
     title: "AI Solutions",
     desc: "Automation, ML integrations, and intelligent systems for the modern era.",
+    fullDesc: "Leverage the power of Artificial Intelligence to automate workflows and gain actionable insights. We integrate large language models (LLMs), computer vision, and predictive analytics into your existing systems to give you a competitive edge.",
+    features: ["Custom AI Agent Development", "Automated Workflow Systems", "Natural Language Processing", "Computer Vision Applications", "Predictive Data Modeling"],
     icon: Brain
   },
   {
     title: "Growth Solutions",
     desc: "Brand websites, conversion funnels, and digital scaling strategies.",
+    fullDesc: "Technology is only half the battle. Our growth solutions combine technical excellence with marketing psychology to build high-converting funnels and digital strategies that scale your business revenue.",
+    features: ["High-Conversion Landing Pages", "Marketing Automation", "SEO & Content Strategy", "Conversion Rate Optimization (CRO)", "Brand Identity Development"],
     icon: ChartLine
   }
 ];

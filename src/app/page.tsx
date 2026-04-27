@@ -1,15 +1,17 @@
 "use client"
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import CustomeText from "@/components/ui/CustomeText";
 import Image from "next/image";
-import { Globe, Zap, Mail, Phone, ChevronRight, Layout, Cpu, Database, Calendar, Facebook, Youtube, Instagram, Twitter, MessageCircle } from "lucide-react";
+import { Globe, Zap, Mail, Phone, ChevronRight, Layout, Cpu, Database, Calendar, Facebook, Youtube, Instagram, Twitter, MessageCircle, X } from "lucide-react";
 import OrangeButton from "@/components/ui/OrangeButton";
-import { teamMembers, services, featuredProjects, techStack, whyChooseUs, timeline } from '../data/data';
+import { teamMembers, services, featuredProjects, techStack, whyChooseUs, timeline, type Service } from '../data/data';
 import ClientOnly from "@/components/ui/ClientOnly";
 
 export default function Home() {
   const founders = teamMembers.filter(m => m.type === 'founder');
   const coreTeam = teamMembers.filter(m => m.type === 'core');
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
 
   return (
     <div className="relative min-h-screen w-full bg-white flex flex-col items-center justify-start overflow-x-hidden">
@@ -227,7 +229,7 @@ export default function Home() {
                     <p className="text-[#98A2B3]">{service.desc}</p>
                   </div>
                   <button 
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => setSelectedService(service)}
                     className="flex items-center gap-2 text-[#FD853A] font-bold group cursor-pointer"
                   >
                     Learn More <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -451,6 +453,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Service Detail Modal */}
+      {selectedService && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300" onClick={() => setSelectedService(null)}>
+          <div 
+            className="relative w-full max-w-[800px] max-h-[90vh] bg-white rounded-[40px] overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300 flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="p-8 md:p-12 bg-[#171717] text-white flex justify-between items-start">
+              <div className="flex items-center gap-6">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#FD853A] flex items-center justify-center shrink-0">
+                  {selectedService.icon && <selectedService.icon size={40} />}
+                </div>
+                <div>
+                  <h3 className="text-3xl md:text-4xl font-bold">{selectedService.title}</h3>
+                  <p className="text-[#98A2B3] text-lg mt-2">{selectedService.desc}</p>
+                </div>
+              </div>
+              <button 
+                onClick={() => setSelectedService(null)}
+                className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                aria-label="Close modal"
+              >
+                <X size={32} />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-8 md:p-12 overflow-y-auto space-y-8">
+              <div>
+                <h4 className="text-xl font-bold text-[#1D2939] mb-4">Service Overview</h4>
+                <p className="text-[#667085] text-lg leading-relaxed">
+                  {selectedService.fullDesc}
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-xl font-bold text-[#1D2939] mb-4">Key Features</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {selectedService.features?.map((feature: string, idx: number) => (
+                    <div key={idx} className="flex items-center gap-3 p-4 bg-[#F9FAFB] rounded-2xl border border-[#EAECF0]">
+                      <div className="w-2 h-2 rounded-full bg-[#FD853A]" />
+                      <span className="text-[#344054] font-medium">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-[#EAECF0] flex flex-col md:flex-row justify-between items-center gap-6">
+                <p className="text-[#667085] text-center md:text-left font-medium">Ready to start your {selectedService.title} project?</p>
+                <button 
+                  onClick={() => {
+                    setSelectedService(null);
+                    setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 300);
+                  }}
+                  className="px-8 py-4 bg-[#FD853A] text-white font-bold rounded-full hover:scale-105 transition-all shadow-[0_4px_0_#e46e24] active:translate-y-[2px] active:shadow-none"
+                >
+                  Contact Us Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
