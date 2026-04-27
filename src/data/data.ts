@@ -62,9 +62,9 @@ export interface CardData {
 export const teamMembers: TeamMember[] = [
   {
     name: "Sunny Prasad",
-    role: "Founder & CEO",
-    bio: "Founder of zorvia.digital and full-stack developer passionate about scalable software, smart-city systems and AI-driven products. Led multiple hackathon innovations and digital solution prototypes.",
-    specialties: ["React", "FastAPI", "AWS", "Docker", "Smart Governance", "SaaS Architecture"],
+    role: "Founder, CEO & Full Stack Developer",
+    bio: "Founder of zorvia.digital and an expert Full Stack Developer passionate about scalable software and real-time tech solutions. Specialized in building autonomous decision-making systems and high-performance AI products, with a focus on delivering end-to-end technical excellence.",
+    specialties: ["Full Stack Development", "Tech Solutions", "Real-time Decision Systems", "React", "FastAPI", "AWS", "Docker", "Smart Governance"],
     projects: ["Smart Campus Attendance Tracker", "Urban Pulse AI Dashboard", "Enterprise Modernization Platform"],
     achievements: ["Smart India Hackathon Shortlisted", "20+ National Hackathons", "NCC Leadership (Corporal)"],
     image: "/team/sunny.jpg", // Placeholder path
