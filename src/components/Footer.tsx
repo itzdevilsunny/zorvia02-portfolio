@@ -194,7 +194,7 @@ const Footer = () => {
 
             <div className="flex flex-col sm:flex-row w-full max-w-[1298px] h-auto lg:h-[26px] items-start justify-between gap-4 sm:gap-0 mt-6 md:mt-0">
                 <p className="w-full sm:w-[415px] h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-left">Copyright© 2026 Zorvia Digital. All Rights Reserved.</p>
-                <Link href={"#"} className="w-full sm:w-fit h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-right hover:text-[#FD853A] transition-colors">Privacy Policy</Link>
+                <Link href={"/terms-and-conditions"} className="w-full sm:w-fit h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-right hover:text-[#FD853A] transition-colors">Terms & Conditions</Link>
             </div>
         </motion.footer>
     );
