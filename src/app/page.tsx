@@ -73,7 +73,13 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="w-full py-24 px-6 lg:px-[71px] bg-[#171717] rounded-[50px] text-white">
         <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
-          <div className="flex-1 space-y-8">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex-1 space-y-8"
+          >
             <div className="space-y-4">
               <div className="flex gap-2">
                 <CustomeText title="Who" className="text-4xl md:text-5xl font-bold" />
@@ -97,9 +103,15 @@ export default function Home() {
               <h4 className="text-[#FD853A] font-bold text-sm uppercase tracking-widest mb-2">Our Mission</h4>
               <p className="text-2xl font-medium">Transform ideas into scalable digital experiences.</p>
             </div>
-          </div>
+          </motion.div>
           
-          <div className="flex-1 relative w-full aspect-[4/3] max-w-[600px] group">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex-1 relative w-full aspect-[4/3] max-w-[600px] group"
+          >
              <div className="absolute inset-0 bg-[#FD853A]/20 rounded-[40px] blur-2xl opacity-50 animate-pulse" />
              <div className="relative h-full w-full rounded-[40px] overflow-hidden border border-white/20 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
                 <Image 
@@ -112,7 +124,7 @@ export default function Home() {
                    <p className="text-white font-medium text-lg italic">The Founding Team at Zorvia Museum of Software</p>
                 </div>
              </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -126,7 +138,14 @@ export default function Home() {
 
           <div className="space-y-24">
             {founders.map((founder, i) => (
-              <div key={i} className={`flex flex-col lg:flex-row gap-12 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.2 }}
+                className={`flex flex-col lg:flex-row gap-12 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+              >
                 <div className="w-full lg:w-1/2 aspect-square relative bg-[#F2F4F7] rounded-[40px] overflow-hidden group">
                    <Image 
                      src={founder.image} 
@@ -173,7 +192,7 @@ export default function Home() {
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -191,6 +210,10 @@ export default function Home() {
             {coreTeam.map((member, i) => (
               <motion.div 
                 key={i} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-[32px] border border-[#EAECF0] hover:shadow-xl transition-all duration-300 group"
               >
@@ -231,10 +254,10 @@ export default function Home() {
           </div>
 
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, type: "spring", damping: 20 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {services.map((service, i) => {
@@ -269,7 +292,13 @@ export default function Home() {
              <p className="text-[#98A2B3] text-lg max-w-[600px] mx-auto">Real-world impact through innovative engineering.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div 
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, type: "spring", damping: 20 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             {featuredProjects.map((project, i) => (
               <a 
                 key={i} 
@@ -321,7 +350,7 @@ export default function Home() {
                 </div>
               </a>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -337,7 +366,14 @@ export default function Home() {
               { label: "Cloud", items: techStack.cloud, icon: Globe },
               { label: "AI & Data", items: techStack.aiData, icon: Database }
             ].map((category, i) => (
-              <div key={i} className="space-y-6 flex flex-col items-center">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="space-y-6 flex flex-col items-center"
+              >
                 <div className="w-16 h-16 rounded-full bg-[#F2F4F7] flex items-center justify-center text-[#FD853A]">
                    <category.icon size={32} />
                 </div>
@@ -349,7 +385,7 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -359,10 +395,17 @@ export default function Home() {
       <section className="w-full py-24 px-6 lg:px-[71px] bg-[#FD853A] rounded-[50px] text-white">
         <div className="max-w-[1200px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
           {whyChooseUs.map((item, i) => (
-            <div key={i} className="space-y-2">
+            <motion.div 
+              key={i} 
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="space-y-2"
+            >
               <h3 className="text-5xl md:text-7xl font-bold">{item.metric}</h3>
               <p className="text-xl font-medium text-white/80">{item.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -377,7 +420,14 @@ export default function Home() {
 
           <div className="relative border-l-2 border-[#FD853A] ml-4 md:ml-8 space-y-12 pb-8">
             {timeline.map((item, i) => (
-              <div key={i} className="relative pl-10">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative pl-10"
+              >
                 <div className="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-[#FD853A] border-4 border-white shadow-sm" />
                 <div className="space-y-2">
                   <div className="flex items-center gap-3 text-[#FD853A] font-bold">
@@ -386,7 +436,7 @@ export default function Home() {
                   </div>
                   <h4 className="text-2xl font-bold text-[#1D2939]">{item.event}</h4>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -394,7 +444,13 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="w-full py-32 px-6 lg:px-[71px]">
-        <div className="max-w-[1200px] mx-auto bg-[#171717] rounded-[60px] p-12 lg:p-24 flex flex-col lg:flex-row gap-16 items-center text-white">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-[1200px] mx-auto bg-[#171717] rounded-[60px] p-12 lg:p-24 flex flex-col lg:flex-row gap-16 items-center text-white"
+        >
           <div className="flex-1 space-y-8 text-center lg:text-left">
             <h2 className="text-4xl md:text-6xl font-bold leading-tight">
               Let&apos;s Build Something <span className="text-[#FD853A]">Together</span>
@@ -472,7 +528,7 @@ export default function Home() {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Service Detail Modal */}
@@ -486,7 +542,7 @@ export default function Home() {
             <div className="p-8 md:p-12 bg-[#171717] text-white flex justify-between items-start">
               <div className="flex items-center gap-6">
                 <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#FD853A] flex items-center justify-center shrink-0">
-                  {selectedService.icon && <selectedService.icon size={40} />}
+                   {selectedService.icon && <selectedService.icon size={40} />}
                 </div>
                 <div>
                   <h3 className="text-3xl md:text-4xl font-bold">{selectedService.title}</h3>

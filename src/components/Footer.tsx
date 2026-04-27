@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { FacebookIcon, YoutubeIcon, InstagramIcon, TwitterIcon, MessageCircle } from "lucide-react";
 import { ArrowUpRight } from "lucide-react";
 import CustomeText from "./ui/CustomeText";
@@ -51,7 +52,13 @@ const Footer = () => {
     };
 
     return (
-        <footer className="w-full min-h-[400px] lg:h-[685px] px-4 sm:px-6 lg:px-[71px] py-[30px] sm:py-[35px] lg:py-[40px] flex flex-col bg-[#272727] rounded-t-2xl sm:rounded-t-3xl text-white justify-between">
+        <motion.footer 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full min-h-[400px] lg:h-[685px] px-4 sm:px-6 lg:px-[71px] py-[30px] sm:py-[35px] lg:py-[40px] flex flex-col bg-[#272727] rounded-t-2xl sm:rounded-t-3xl text-white justify-between"
+        >
 
             {/* Top Section */}
             <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6">
@@ -189,7 +196,7 @@ const Footer = () => {
                 <p className="w-full sm:w-[415px] h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-left">Copyright© 2026 Zorvia Digital. All Rights Reserved.</p>
                 <Link href={"#"} className="w-full sm:w-fit h-auto lg:h-[26px] text-[16px] sm:text-[18px] lg:text-[20px] text-white text-center sm:text-right hover:text-[#FD853A] transition-colors">Privacy Policy</Link>
             </div>
-        </footer>
+        </motion.footer>
     );
 };
 
