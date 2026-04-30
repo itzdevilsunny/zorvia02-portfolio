@@ -255,6 +255,15 @@ export const featuredProjects: Project[] = [
     impact: "Enhanced digital footprint for luxury resorts, driving direct bookings and guest engagement.",
     image: "/projects/loft-hills.png",
     link: "https://share.google/JK4pyEMPvA3RHutma"
+  },
+  {
+    title: "BeFurniture - Modern Minimalist Store",
+    problem: "The challenge of finding high-quality, minimalist furniture that balances aesthetic appeal with functional durability.",
+    solution: "A premium e-commerce experience showcasing curated minimalist furniture with a focus on clean design and material excellence.",
+    stack: ["Next.js", "Tailwind CSS", "Framer Motion", "E-commerce"],
+    impact: "Provides a seamless, visually stunning shopping experience that elevates the standard for digital furniture retail.",
+    image: "/projects/furniture.png",
+    link: "https://modern-minimalist-furniture.vercel.app/"
   }
 ];
 
