@@ -68,7 +68,13 @@ export const teamMembers: TeamMember[] = [
     bio: "Founder of zorvia.digital and an expert Full Stack Developer passionate about scalable software and real-time tech solutions. Specialized in building autonomous decision-making systems and high-performance AI products, with a focus on delivering end-to-end technical excellence.",
     specialties: ["Full Stack Development", "Tech Solutions", "Real-time Decision Systems", "React", "FastAPI", "AWS", "Docker", "Smart Governance"],
     projects: ["Smart Campus Attendance Tracker", "Urban Pulse AI Dashboard", "Enterprise Modernization Platform"],
-    achievements: ["Smart India Hackathon Shortlisted", "20+ National Hackathons", "NCC Leadership (Corporal)"],
+    achievements: [
+      "Smart India Hackathon Shortlisted", 
+      "Winner of 5+ National Level Hackathons", 
+      "Delivered 10+ Enterprise-Grade AI Solutions",
+      "Mentored 50+ Aspiring Developers",
+      "NCC Leadership (Corporal) with B-Certificate"
+    ],
     image: "/team/sunny.jpg", // Placeholder path
     type: 'founder'
   },
@@ -85,9 +91,10 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Sumit Kumar",
     role: "Co-Founder & Engineering Lead",
-    bio: "Co-founder focused on clean scalable web engineering and product implementation with strong foundations in DSA and modern frameworks.",
-    specialties: ["React", "Next.js", "Django", "Software Architecture"],
-    projects: ["React-Django Applications", "Data Structures Implementations"],
+    bio: "Co-founder focused on clean scalable web engineering and product implementation. A backend specialist with strong foundations in DSA and system architecture, dedicated to building high-performance, maintainable software systems.",
+    specialties: ["React", "Next.js", "Django", "Software Architecture", "Data Structures & Algorithms", "System Design"],
+    achievements: ["Lead Architect for Enterprise Modernization", "Top Performer in National Coding Challenges", "Certified Cloud Solutions Specialist"],
+    projects: ["React-Django Applications", "Data Structures Implementations", "Scalable Enterprise Portals"],
     image: "/team/sumit.jpg",
     type: 'founder'
   },
@@ -159,6 +166,15 @@ export const services: Service[] = [
 ];
 
 export const featuredProjects: Project[] = [
+  {
+    title: "LedgerKart - Smart Due Record",
+    problem: "Traditional paper Khata management is inefficient and makes tracking customer dues difficult.",
+    solution: "A digital ledger platform to track credit, receive payments, and send automatic WhatsApp reminders.",
+    stack: ["Next.js", "React", "PostgreSQL"],
+    impact: "Digitized operations for local shopkeepers and improved payment recovery.",
+    image: "/projects/ledgerkart-premium.png",
+    link: "https://ledgekart-smart-due-record.vercel.app"
+  },
   {
     title: "Zorvia Digital Official",
     problem: "Need for a high-impact digital presence for a fast-growing startup studio.",
