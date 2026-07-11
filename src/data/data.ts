@@ -167,6 +167,42 @@ export const services: Service[] = [
 
 export const featuredProjects: Project[] = [
   {
+    title: "RiskShield - Credit Risk Analytics",
+    problem: "Credit underwriting processes are slowed down by fragmented datasets and manual analysis of unstructured loan officer notes.",
+    solution: "An AI-driven credit underwriting portal that fuses structured financial data (FICO, DTI) with NLP analysis of loan transcripts and notes to predict default risk.",
+    stack: ["Next.js", "React", "Tailwind CSS", "Recharts", "Supabase", "Render API"],
+    impact: "Fused structured and unstructured credit risk assessment, achieving 91.2% ROC-AUC accuracy on default prediction.",
+    image: "/projects/riskshield.png",
+    link: "https://default-prediction-model-rho.vercel.app/"
+  },
+  {
+    title: "CivicMind AI - Smart City Digital Twin",
+    problem: "Municipal agencies struggle to make real-time decisions due to disconnected IoT sensors, transit channels, and citizen grievances.",
+    solution: "A smart city decision intelligence platform showcasing a digital twin map overlay of London to monitor live IoT sensors, transit lines, air quality (AQI), and run 'What-If' policy simulations.",
+    stack: ["React", "Leaflet", "Open-Meteo API", "TfL API", "Tailwind CSS"],
+    impact: "Real-time sensor and transport monitoring integrated with BBC news, citizen ticket consoles, and policy outcome predictors.",
+    image: "/projects/civicmind.png",
+    link: "https://civic-mind-ai-five.vercel.app/"
+  },
+  {
+    title: "LifeLens AI - Personal AI Assistant",
+    problem: "Indian households face difficulties digitizing documents, tracking budgets, and discovering eligible government welfare schemes.",
+    solution: "An offline-first, multilingual AI assistant helping families scan/organize bills and prescriptions, manage daily planners, track budgets, and check government scheme eligibility.",
+    stack: ["React", "Gemini AI", "Dexie.js", "IndexedDB", "Tailwind CSS"],
+    impact: "Accessible personal AI support in 11+ regional languages with offline database sync for remote areas.",
+    image: "/projects/lifelens.png",
+    link: "https://lifelens-ai-eosin.vercel.app/"
+  },
+  {
+    title: "ISRO NOC Copilot - Ground Station AI",
+    problem: "Satellite ground stations are vulnerable to unpredictable network anomalies (e.g., solar flares) causing packet dropouts and communication failures.",
+    solution: "A mission-critical, air-gapped network operations center (NOC) copilot that predicts downlink anomalies, provides local expert RAG troubleshooting, and generates Cisco IOS scripts for auto-remediation.",
+    stack: ["React", "Local RAG Engine", "Tailwind CSS", "Cisco IOS CLI"],
+    impact: "Automated LEO/GEO telemetry monitoring and instant anomaly resolution, minimizing ground station packet loss.",
+    image: "/projects/isro-copilot.png",
+    link: "https://air-gapped-predictive-copilot.vercel.app/"
+  },
+  {
     title: "LedgerKart - Smart Due Record",
     problem: "Traditional paper Khata management is inefficient and makes tracking customer dues difficult.",
     solution: "A digital ledger platform to track credit, receive payments, and send automatic WhatsApp reminders.",
